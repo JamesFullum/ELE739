@@ -15,8 +15,8 @@ use ieee.numeric_std.all; -- Pour les types signed et unsigned
 entity feu_traffique is
   -- La section generic contient les paramètres de configuration du module.
   generic (
-    delai        : positive; -- valeur maximum pour le délai
-    taille_cmptr : positive  -- taille en bits du registre du compteur
+    delai        : positive := 6; -- valeur maximum pour le délai
+    taille_cmptr : positive := 7 -- taille en bits du registre du compteur
   );
 
   -- La section port contient les entrées-sorties du module.
@@ -37,12 +37,15 @@ begin
     if rising_edge(clk) then
       if reset = '1' then
         delai_sig <= (others => '0');
+        fini      <= '0';
       else
         if enable = '1' then
-          if delai_sig = delai then
+          if delai_sig >= delai then
             delai_sig <= (others => '0');
+            fini      <= '1';
           else
             delai_sig <= delai_sig + 1;
+            fini      <= '0';
           end if;
         end if;
       end if;
