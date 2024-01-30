@@ -22,55 +22,95 @@ entity Feu_Traffique is
 
   -- La section port contient les entrées-sorties du module.
   port (
-    i_clk : in  std_logic;
-    i_rst : in  std_logic;
-    i_cen : in  std_logic;
-    o_feu : out std_logic;
-    o_fin : out std_logic
+    i_clk   : in  std_logic;
+    i_rst   : in  std_logic;
+    i_cen   : in  std_logic;
+    o_feu_v : out std_logic;
+    o_feu_j : out std_logic;
+    o_feu_r : out std_logic;
+    o_fin   : out std_logic
   );
 end;
 
 architecture rtl of feu_traffique is
    -- Compteur pour la durée du feu
    signal delai_sig: unsigned(G_DELAI_SIZE-1 downto 0);
+   
+   type cmptr_state is (ROUGE, JAUNE, VERT);
+   
+   signal current_state : cmptr_state;
+   signal next_state    : cmptr_state;
+   
 begin
 
+  -------------------------------------
+  -- Current State Logic
+  -------------------------------------
   process(i_clk)
   begin
-    if rising_edge(i_clk) then
-      -- Réinitialiser le compteur et éteindre la lumière
-      if i_rst = '1' then
-        delai_sig <= (others => '0');
-        o_feu     <= '0';
-        o_fin     <= '0';
-      else
-        if i_cen = '1' then
-        -- Si le feu est activer
-          if delai_sig >= G_DELAI then
-          -- Si le délai est atteint
-            delai_sig <= (others => '0');
-            o_feu     <= '0';
-            o_fin     <= '1';
-          else
-            if delai_sig >= G_DELAI_JAUNE then
-            -- Si le délai est supérieure que le seuil du delai jaune
-               -- Comportement jaune
-            else
-            -- Sinon la lumière reste vert
-               o_feu <= '1';
-            end if;
-          -- Sinon, augmente la compteur et assurer que o_fin == 0
-            delai_sig <= delai_sig + 1;
-            o_fin     <= '0';
-          end if;
-        else
-        -- Sinon, désactiver tout
-           o_fin     <= '0';
-           o_feu     <= '0';
+     if rising_edge(i_clk) then
+        -- Réinitialiser le compteur et éteindre la lumière
+        if i_rst = '1' then
            delai_sig <= (others => '0');
-        end if;
+           o_feu_v    <= '0';
+           o_feu_j    <= '0';
+           o_feu_r    <= '1';
+           o_fin      <= '0';
+        else
+           case next_state is
+              when ROUGE =>
+                 o_feu_r <= '1';
+                 o_feu_j <= '0';
+                 o_feu_v <= '0';
+                 o_fin   <= '1';
+              when JAUNE =>
+                 o_feu_r <= '0';
+                 o_feu_j <= '1';
+                 o_feu_v <= '0';
+                 o_fin   <= '0';
+              when VERT  =>
+                 o_feu_r <= '0';
+                 o_feu_j <= '0';
+                 o_feu_v <= '1'; 
+                 o_fin   <= '0';          
+              when others =>
+                 o_feu_r <= '1';
+                 o_feu_j <= '0';
+                 o_feu_v <= '0';
+                 o_fin   <= '0';
+               end case;
+            delai_sig <= delai_sig + 1;
+         end if;
       end if;
-    end if;
+   end process;
+      
+  -------------------------------------
+  -- Next State Logic
+  -------------------------------------  
+  process(delai_sig, current_state, i_cen)
+  begin
+     case current_state is
+        when ROUGE =>
+           if i_cen = '1' then
+              next_state <= VERT;
+           else
+              next_state <= ROUGE;
+           end if;
+        when JAUNE =>
+           if delai_sig >= G_DELAI then
+              next_state <= ROUGE;
+           else
+              next_state <= JAUNE;
+           end if;
+        when VERT =>
+           if delai_sig >= G_DELAI_JAUNE then
+              next_state <=  JAUNE;
+           else
+              next_state <= VERT;
+           end if;
+        when others =>
+           next_state <= ROUGE;
+     end case;
   end process;
 
 end architecture;
