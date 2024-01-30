@@ -57,6 +57,22 @@ architecture rtl of MEF_Projet_1 is
         o_fin   : out std_logic
       );
     end component;
+    
+       -- Déclaration du composant pour les feu de traffiques
+    component Feu_PTP is
+      generic (
+        G_DELAI       : positive;
+        G_DELAI_JAUNE : positive;
+        G_DELAI_SIZE  : positive
+      );
+      port (
+        i_clk   : in  std_logic;
+        i_rst   : in  std_logic;
+        i_cen   : in  std_logic;
+        o_feu   : out std_logic;;
+        o_fin   : out std_logic
+      );
+    end component;
 
     -- datatype pour gérées les états du MÉF
     type traffic_state is (INIT, FP, FS, FPTP); 
@@ -188,9 +204,9 @@ begin
            i_rst => i_bi,
            i_cen => en_fp,
            o_fin => fin_fp,
-           o_feu_v => o_feu_fp_v,  
-           o_feu_j => o_feu_fp_j,  
-           o_feu_r => o_feu_fp_r);  
+           o_feu_v => o_fp_v,  
+           o_feu_j => o_fp_j,  
+           o_feu_r => o_fp_r);  
 
     -- Instantiation du Feu Secondaire (FS)
     FEU_SECONDAIRE : Feu_Traffique
@@ -203,13 +219,13 @@ begin
            i_rst   => i_bi,
            i_cen   => en_fs,
            o_fin   => fin_fs,
-           o_feu_v => o_feu_fs_v, 
-           o_feu_j => o_feu_fs_j, 
-           o_feu_r => o_feu_fs_r); 
+           o_feu_v => o_fs_v, 
+           o_feu_j => o_fs_j, 
+           o_feu_r => o_fs_r); 
            
            
     -- Instantiation du Feu Priorite a Travers des Pietons (FPTP)
-    FEU_PTP : Feu_Traffique
+    FEU_PTP : Feu_PTP
         generic map(
            G_DELAI       => G_DELAI,
            G_DELAI_JAUNE => G_DELAI_JAUNE,
@@ -219,8 +235,6 @@ begin
            i_rst => i_bi,
            i_cen => en_fptp,
            o_fin => fin_fptp,
-           o_feu_v => o_feu_fptp_v, 
-           o_feu_j => o_feu_fptp_j, 
-           o_feu_r => o_feu_fptp_r); 
+           o_feu_fptp => o_fptp_v);
 
 end rtl;

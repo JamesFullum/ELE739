@@ -15,7 +15,7 @@ use ieee.numeric_std.all;    -- Pour les types signed et unsigned
 entity Feu_Traffique is
   -- La section generic contient les paramètres de configuration du module.
   generic (
-    G_DELAI       : positive := 6; -- valeur maximum pour le délai
+    G_DELAI       : positive := 10; -- valeur maximum pour le délai
     G_DELAI_JAUNE : positive := 3; -- Seuil ou la lumière va devenir jaune
     G_DELAI_SIZE  : positive := 7 -- taille en bits du registre du compteur
   );
@@ -51,7 +51,7 @@ begin
      if rising_edge(i_clk) then
         -- Réinitialiser le compteur et éteindre la lumière
         if i_rst = '1' then
-           delai_sig <= (others => '0');
+           delai_sig  <= (others => '0');
            o_feu_v    <= '0';
            o_feu_j    <= '0';
            o_feu_r    <= '1';
@@ -78,8 +78,9 @@ begin
                  o_feu_j <= '0';
                  o_feu_v <= '0';
                  o_fin   <= '0';
-               end case;
+              end case;
             delai_sig <= delai_sig + 1;
+            current_state <= next_state;
          end if;
       end if;
    end process;
@@ -104,7 +105,7 @@ begin
            end if;
         when VERT =>
            if delai_sig >= G_DELAI_JAUNE then
-              next_state <=  JAUNE;
+              next_state <= JAUNE;
            else
               next_state <= VERT;
            end if;
