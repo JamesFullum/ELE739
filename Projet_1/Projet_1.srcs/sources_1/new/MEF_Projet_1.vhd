@@ -14,7 +14,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity MEF_Projet_1 is
-
   -- Déclaration des génériques
   generic (
     G_DELAI       : positive := 6;
@@ -80,33 +79,40 @@ begin
     begin
        if rising_edge(i_clk) then
           if i_bi = '1' then
+          -- Si le MÉF est initialiser, remet les valeurs au défaut
              current_state <= INIT;
              last_state    <= FP;
              o_err         <= '0';
           else
             case current_state is
               when INIT =>
+              -- Pour INIT, tous les chips sont désactivés
                  en_fp      <= '0';
                  en_fs      <= '0';
                  en_fptp    <= '0';  
               when FP   =>
+              -- Pour FP, le chip FP est activé, et la valeur du dernier état est màj
                  en_fp      <= '1';
                  en_fs      <= '0';
                  en_fptp    <= '0';   
                  last_state <= FP;              
               when FS   =>
+              -- Pour FP, le chip FS est activé, et la valeur du dernier état est màj
                  en_fp      <= '0';
                  en_fs      <= '1';
                  en_fptp    <= '0'; 
                  last_state <= FS; 
               when FPTP =>
+              -- Pour FPTP, le chip FPTP est activé
                  en_fp      <= '0';
                  en_fs      <= '0';
                  en_fptp    <= '1'; 
               when others =>
+              -- Cas d'érreur dans le cas où on l'aura besoin
                  o_err <= '1';
             end case;     
           end if;
+          -- MÀJ l'état présent
           current_state <= next_state;
        end if;    
     end process;
@@ -118,35 +124,53 @@ begin
     last_state, current_state)
     begin
        if i_bi = '1' then
+       -- Remettre le next_state à INIT
           next_state <= INIT;
        else
           case current_state is
              when INIT =>
+             -- Lors du INIT, va directement à FP
                 next_state <= FP;
              when FP =>
-                if i_bap = '1' then
-                   next_state <= FPTP;
-                elsif fin_fp = '1' then
-                   next_state <= FS;
-                else
-                   next_state <= FP;
-                end if; 
-             when FS =>
-                if i_bap = '1' then
-                   next_state <= FPTP;
-                elsif fin_fs = '1' then
-                   next_state <= FP;
-                else
-                   next_state <= FS;
-                end if;
-             when FPTP =>
-                if fin_fptp = '1' then
-                   if last_state = FP then
-                      next_state <= FP;
+                if fin_fp = '1' then
+                -- Si le cycle FP est terminé
+                   if i_bap = '1' then
+                   -- Si le BAP à été peser, va au FPTP
+                      next_state <= FPTP;
                    else
+                   -- Sinon, va au FS
                       next_state <= FS;
                    end if;
                 else
+                -- Sinon, rester à FP
+                   next_state <= FP;
+                end if; 
+             when FS =>
+                if fin_fs = '1' then
+                -- Si le cycle FS est terminé
+                   if i_bap = '1' then
+                   -- Si le BAP à été peser, va au FPTP
+                      next_state <= FPTP;
+                   else
+                   -- Sinon, va au FP
+                      next_state <= FP;
+                   end if;
+                else
+                -- Sinon, rester à FS
+                   next_state <= FS;
+                end if; 
+             when FPTP =>
+                if fin_fptp = '1' then
+                -- Si le cycle FPTP est terminé
+                   if last_state = FP then
+                   -- Si le dernier état était FP, va à FS
+                      next_state <= FS;
+                   else
+                   -- Sinon, va à FS
+                      next_state <= FP;
+                   end if;
+                else
+                -- Sinon, rester à FPTP
                    next_state <= FPTP;
                 end if; 
              when others =>     
@@ -159,10 +183,12 @@ begin
 -- Déclaration des entitées
 -----------------------------------------------------------
 
+    -- Instantiation du Feu Primaire (FP)
     FEU_PRIMAIRE: Feu_Traffique
         generic map(
-           G_DELAI      => G_DELAI,
-           G_DELAI_SIZE => G_DELAI_SIZE)
+           G_DELAI       => G_DELAI,
+           G_DELAI_JAUNE => G_DELAI_JAUNE,
+           G_DELAI_SIZE  => G_DELAI_SIZE)
         port map (
            i_clk => i_clk,
            i_rst => i_bi,
@@ -170,6 +196,7 @@ begin
            o_fin => fin_fp,
            o_feu => o_feu_fp);  
 
+    -- Instantiation du Feu Secondaire (FS)
     FEU_SECONDAIRE : Feu_Traffique
         generic map(
            G_DELAI       => G_DELAI,
