@@ -27,8 +27,7 @@ entity Feu_Traffique is
     i_cen   : in  std_logic;
     o_feu_v : out std_logic;
     o_feu_j : out std_logic;
-    o_feu_r : out std_logic;
-    o_fin   : out std_logic
+    o_feu_r : out std_logic
   );
 end;
 
@@ -36,7 +35,7 @@ architecture rtl of feu_traffique is
    -- Compteur pour la durée du feu
    signal delai_sig: unsigned(G_DELAI_SIZE-1 downto 0);
    
-   type cmptr_state is (ROUGE, JAUNE, VERT);
+   type cmptr_state is (ROUGE, VERT, JAUNE);
    
    signal current_state : cmptr_state;
    signal next_state    : cmptr_state;
@@ -62,22 +61,18 @@ begin
                  o_feu_r <= '1';
                  o_feu_j <= '0';
                  o_feu_v <= '0';
-                 o_fin   <= '1';
               when JAUNE =>
                  o_feu_r <= '0';
                  o_feu_j <= '1';
                  o_feu_v <= '0';
-                 o_fin   <= '0';
               when VERT  =>
                  o_feu_r <= '0';
                  o_feu_j <= '0';
-                 o_feu_v <= '1'; 
-                 o_fin   <= '0';          
+                 o_feu_v <= '1';          
               when others =>
                  o_feu_r <= '1';
                  o_feu_j <= '0';
                  o_feu_v <= '0';
-                 o_fin   <= '0';
               end case;
             delai_sig <= delai_sig + 1;
             current_state <= next_state;

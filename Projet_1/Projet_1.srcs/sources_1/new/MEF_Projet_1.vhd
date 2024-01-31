@@ -93,6 +93,10 @@ architecture rtl of MEF_Projet_1 is
 
 begin
 
+    -- Assignation des feu rouge vers les outputs
+    o_fp_r <= fin_fp;
+    o_fs_r <= fin_fs;
+
     -------------------------------------
     -- Current State Logic
     -------------------------------------
@@ -206,7 +210,7 @@ begin
            o_fin => fin_fp,
            o_feu_v => o_fp_v,  
            o_feu_j => o_fp_j,  
-           o_feu_r => o_fp_r);  
+           o_feu_r => fin_fp);  
 
     -- Instantiation du Feu Secondaire (FS)
     FEU_SECONDAIRE : Feu_Traffique
@@ -221,7 +225,7 @@ begin
            o_fin   => fin_fs,
            o_feu_v => o_fs_v, 
            o_feu_j => o_fs_j, 
-           o_feu_r => o_fs_r); 
+           o_feu_r => fin_fs); 
            
            
     -- Instantiation du Feu Priorite a Travers des Pietons (FPTP)
