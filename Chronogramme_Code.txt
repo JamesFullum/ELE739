@@ -1,0 +1,44 @@
+NORMAL
+-> FP 
+-> FS 
+-> FP
+
+FPTP
+-> FP
+  -> BAP -> SA
+-> FPTP
+-> FP
+-> FS
+  -> BAP -> SA
+-> FPTP
+-> FP
+
+
+RESET
+-> FP
+   -> RESET
+-> FP
+-> FS
+   -> RESET
+-> FP
+   -> BAP -> SA
+-> FPTP
+   -> RESET
+
+Scenario NORMAL
+{signal: [
+  {name: 'clk'          , wave: 'p.......................'},
+  {name: 'current_state', wave: 'x.22......2......2......', data: ['INIT', 'FP', 'FS', 'FP', 'FS']},
+  {name: 'next_state'   , wave: 'x22......2......2......2', data: ['INIT', 'FP', 'FS', 'FP', 'FS']},
+  {name: 'i_bi'         , wave: '010.....................'},
+  {name: 'en_fp'        , wave: '0..1.....0.......1......'},
+  {name: 'o_fp_v'       , wave: '0...1..0..........1..0..'},
+  {name: 'o_fp_j'       , wave: '0......1.0...........1.0'},
+  {name: 'o_fp_r'       , wave: '1...0....1........0....1'},
+  {name: 'fin_fp'       , wave: '1...0....1........0....1'},
+  {name: 'en_fs'        , wave: '0.........1.....0.......'},
+  {name: 'o_fs_v'       , wave: '0..........1..0.........'},
+  {name: 'o_fs_j'       , wave: '0.............1.0.......'},
+  {name: 'o_fs_r'       , wave: '1..........0....1.......'},
+  {name: 'fin_fs'       , wave: '1..........0....1.......'},
+]}
