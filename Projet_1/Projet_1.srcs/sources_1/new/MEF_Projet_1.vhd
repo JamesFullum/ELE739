@@ -53,8 +53,7 @@ architecture rtl of MEF_Projet_1 is
         i_cen   : in  std_logic;
         o_feu_v : out std_logic;
         o_feu_j : out std_logic;
-        o_feu_r : out std_logic;
-        o_fin   : out std_logic
+        o_feu_r : out std_logic
       );
     end component;
     
@@ -69,7 +68,7 @@ architecture rtl of MEF_Projet_1 is
         i_clk   : in  std_logic;
         i_rst   : in  std_logic;
         i_cen   : in  std_logic;
-        o_feu   : out std_logic;;
+        o_feu   : out std_logic;
         o_fin   : out std_logic
       );
     end component;
@@ -207,7 +206,6 @@ begin
            i_clk => i_clk,
            i_rst => i_bi,
            i_cen => en_fp,
-           o_fin => fin_fp,
            o_feu_v => o_fp_v,  
            o_feu_j => o_fp_j,  
            o_feu_r => fin_fp);  
@@ -222,7 +220,6 @@ begin
            i_clk   => i_clk,
            i_rst   => i_bi,
            i_cen   => en_fs,
-           o_fin   => fin_fs,
            o_feu_v => o_fs_v, 
            o_feu_j => o_fs_j, 
            o_feu_r => fin_fs); 
@@ -238,7 +235,6 @@ begin
            i_clk => i_clk,
            i_rst => i_bi,
            i_cen => en_fptp,
-           o_fin => fin_fptp,
-           o_feu_fptp => o_fptp_v);
+           o_feu => fin_fptp);
 
 end rtl;

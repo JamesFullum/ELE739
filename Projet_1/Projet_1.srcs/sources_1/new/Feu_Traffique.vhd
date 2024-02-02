@@ -54,7 +54,6 @@ begin
            o_feu_v    <= '0';
            o_feu_j    <= '0';
            o_feu_r    <= '1';
-           o_fin      <= '0';
         else
            case next_state is
               when ROUGE =>
