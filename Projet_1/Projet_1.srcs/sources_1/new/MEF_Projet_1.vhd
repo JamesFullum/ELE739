@@ -209,7 +209,7 @@ begin
            
            
     -- Instantiation du Feu Priorite a Travers des Pietons (FPTP)
-    FEU_PTP : Feu_Traffique
+    FEU_FPTP : Feu_Traffique
         generic map(
            G_DELAI       => G_DELAI,
            G_DELAI_JAUNE => G_DELAI_JAUNE,
@@ -219,8 +219,7 @@ begin
            i_rst => i_bi,
            i_cen => en_fptp,
            o_fin => fin_fptp,
-           o_feu_v => o_feu_fptp_v, 
-           o_feu_j => o_feu_fptp_j, 
-           o_feu_r => o_feu_fptp_r); 
+           o_feu_FPTP => o_feu_FPTP
+          ); 
 
 end rtl;
