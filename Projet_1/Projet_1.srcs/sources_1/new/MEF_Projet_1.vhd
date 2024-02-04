@@ -228,10 +228,14 @@ begin
     -- Instantiation du Feu Priorite a Travers des Pietons (FPTP)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     FEU_FPTP : Feu_Traffique
 =======
     FEU_PTP : Feu_PTP
 >>>>>>> 3ff4e00f3792938f15ff6ab892c62a48d7137d88
+=======
+    FEU_PTP : Feu_Traffique
+>>>>>>> parent of 89ea826 (creation de la branche guillaume)
 =======
     FEU_PTP : Feu_Traffique
 >>>>>>> parent of 89ea826 (creation de la branche guillaume)
@@ -246,11 +250,17 @@ begin
 <<<<<<< HEAD
            o_fin => fin_fptp,
 <<<<<<< HEAD
+<<<<<<< HEAD
            o_feu_FPTP => o_feu_FPTP
           ); 
 =======
            o_feu => fin_fptp);
 >>>>>>> 3ff4e00f3792938f15ff6ab892c62a48d7137d88
+=======
+           o_feu_v => o_feu_fptp_v, 
+           o_feu_j => o_feu_fptp_j, 
+           o_feu_r => o_feu_fptp_r); 
+>>>>>>> parent of 89ea826 (creation de la branche guillaume)
 =======
            o_feu_v => o_feu_fptp_v, 
            o_feu_j => o_feu_fptp_j, 
