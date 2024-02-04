@@ -29,7 +29,6 @@ entity Feu_Traffique is
     o_feu_j : out std_logic;
 <<<<<<< HEAD
     o_feu_r : out std_logic;
-    o_feu_FPTP : out std_logic;
     o_fin   : out std_logic
 =======
     o_feu_r : out std_logic
