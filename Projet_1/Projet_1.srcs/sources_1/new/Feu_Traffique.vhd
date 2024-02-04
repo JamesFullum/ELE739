@@ -27,7 +27,13 @@ entity Feu_Traffique is
     i_cen   : in  std_logic;
     o_feu_v : out std_logic;
     o_feu_j : out std_logic;
+<<<<<<< HEAD
+    o_feu_r : out std_logic;
+    o_feu_FPTP : out std_logic;
+    o_fin   : out std_logic
+=======
     o_feu_r : out std_logic
+>>>>>>> 3ff4e00f3792938f15ff6ab892c62a48d7137d88
   );
 end;
 
