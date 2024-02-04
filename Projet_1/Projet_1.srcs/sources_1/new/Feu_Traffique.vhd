@@ -27,7 +27,8 @@ entity Feu_Traffique is
     i_cen   : in  std_logic;
     o_feu_v : out std_logic;
     o_feu_j : out std_logic;
-    o_feu_r : out std_logic
+    o_feu_r : out std_logic;
+    o_fin   : out std_logic
   );
 end;
 
@@ -35,7 +36,7 @@ architecture rtl of feu_traffique is
    -- Compteur pour la durée du feu
    signal delai_sig: unsigned(G_DELAI_SIZE-1 downto 0);
    
-   type cmptr_state is (ROUGE, VERT, JAUNE);
+   type cmptr_state is (DONE, ROUGE, VERT, JAUNE);
    
    signal current_state : cmptr_state;
    signal next_state    : cmptr_state;
@@ -56,25 +57,38 @@ begin
            o_feu_r    <= '1';
         else
            case next_state is
-              when ROUGE =>
+              when ROUGE  =>
                  o_feu_r <= '1';
                  o_feu_j <= '0';
                  o_feu_v <= '0';
+                 o_fin   <= '0';
+                 delai_sig <= (others => '0');
+              when DONE =>
+                 o_feu_r <= '1';
+                 o_feu_j <= '0';
+                 o_feu_v <= '0';
+                 o_fin   <= '1';
+                 delai_sig <= (others => '0');
               when JAUNE =>
                  o_feu_r <= '0';
                  o_feu_j <= '1';
                  o_feu_v <= '0';
+                 o_fin   <= '0';
+                 delai_sig <= delai_sig + 1;
               when VERT  =>
                  o_feu_r <= '0';
                  o_feu_j <= '0';
-                 o_feu_v <= '1';          
+                 o_feu_v <= '1';
+                 o_fin   <= '0';  
+                 delai_sig <= delai_sig + 1;        
               when others =>
                  o_feu_r <= '1';
                  o_feu_j <= '0';
                  o_feu_v <= '0';
+                 o_fin   <= '0';
+                 delai_sig <= (others => '0');
               end case;
-            delai_sig <= delai_sig + 1;
-            current_state <= next_state;
+              current_state <= next_state;
          end if;
       end if;
    end process;
@@ -91,9 +105,11 @@ begin
            else
               next_state <= ROUGE;
            end if;
+        when DONE =>
+           next_state <= ROUGE;
         when JAUNE =>
            if delai_sig >= G_DELAI then
-              next_state <= ROUGE;
+              next_state <= DONE;
            else
               next_state <= JAUNE;
            end if;

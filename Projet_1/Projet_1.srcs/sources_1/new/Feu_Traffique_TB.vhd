@@ -19,8 +19,8 @@ end entity Feu_Traffique_TB;
 architecture testbench of Feu_Traffique_TB is
 
   -- Définition des paramètres génériques du module testé en constantes
-  constant G_DELAI       : positive := 4;
-  constant G_DELAI_JAUNE : positive := 3;
+  constant G_DELAI       : positive := 10;
+  constant G_DELAI_JAUNE : positive := 5;
   constant G_DELAI_SIZE  : positive := 12;
 
   -- Déclaration du composant à tester
@@ -31,19 +31,37 @@ architecture testbench of Feu_Traffique_TB is
       G_DELAI_SIZE  : positive := 7
     );
     port (
-      i_clk      : in  std_logic;
-      i_bi       : in  std_logic;
-      i_bap      : in  std_logic;
-      o_sa       : out std_logic;
-      o_feu_fp   : out std_logic;
-      o_feu_fs   : out std_logic;
-      o_feu_fptp : out std_logic;
-      o_err      : out std_logic);
-  end component;
+      i_clk    : in  std_logic;
+      i_bi     : in  std_logic;
+      i_bap    : in  std_logic;  -- Bouton à piétons
+      o_sa     : out std_logic;
+      o_fp_v   : out std_logic;  -- Feu vert pour le FP
+      o_fp_j   : out std_logic;  -- Feu jaune pour le FP
+      o_fp_r   : out std_logic;  -- Feu rouge pour le FP
+      o_fp_f   : out std_logic;  -- Signal Fini FP
+      o_fs_v   : out std_logic;  -- Feu vert pour le FS
+      o_fs_j   : out std_logic;  -- Feu jaune pour le FS
+      o_fs_r   : out std_logic;  -- Feu rouge pour le FS
+      o_fs_f   : out std_logic;  -- Signal Fini FS
+      o_fptp_f : out std_logic;  -- Signal fin FPTP
+      o_fptp   : out std_logic);   -- Feu pour le FPTP
+    end component;
 
   -- Définition des ports du module testé en signaux
   signal clk      : std_logic;
-  signal reset    : std_logic;     
+  signal reset    : std_logic;  
+  signal i_bap    : std_logic;
+  signal o_sa     : std_logic;
+  signal o_fp_v   : std_logic;
+  signal o_fp_j   : std_logic;
+  signal o_fp_r   : std_logic;
+  signal o_fp_f   : std_logic;
+  signal o_fs_v   : std_logic;
+  signal o_fs_j   : std_logic;
+  signal o_fs_r   : std_logic;
+  signal o_fs_f   : std_logic;
+  signal o_fptp   : std_logic;   
+  signal o_fptp_f : std_logic;
 
 begin
 
@@ -71,9 +89,12 @@ begin
 --------------------------------------------------------------------------------
   main : process
   begin
-     
+     i_bap <= '0';
+     wait for 1000 ns;
+     i_bap <= '1';
      wait for 100 ns;
-
+     i_bap <= '0';
+     wait for 100000 ns;
   end process;
 
 --------------------------------------------------------------------------------
@@ -89,9 +110,15 @@ begin
       i_bi       => reset,
       i_bap      => i_bap,
       o_sa       => o_sa,
-      o_feu_fp   => o_feu_fp,
-      o_feu_fs   => o_feu_fs,
-      o_feu_fptp => o_feu_fptp,
-      o_err      => o_err);
+      o_fp_v     => o_fp_v,
+      o_fp_j     => o_fp_j,
+      o_fp_r     => o_fp_r,
+      o_fp_f     => o_fp_f,
+      o_fs_v     => o_fs_v,
+      o_fs_j     => o_fs_j,
+      o_fs_r     => o_fs_r,
+      o_fs_f     => o_fs_f,
+      o_fptp     => o_fptp,
+      o_fptp_f   => o_fptp_f);
 
 end architecture testbench;

@@ -30,11 +30,13 @@ entity MEF_Projet_1 is
     o_fp_v   : out std_logic;  -- Feu vert pour le FP
     o_fp_j   : out std_logic;  -- Feu jaune pour le FP
     o_fp_r   : out std_logic;  -- Feu rouge pour le FP
+    o_fp_f   : out std_logic;
     o_fs_v   : out std_logic;  -- Feu vert pour le FS
     o_fs_j   : out std_logic;  -- Feu jaune pour le FS
     o_fs_r   : out std_logic;  -- Feu rouge pour le FS
-    o_fptp   : out std_logic;  -- Feu pour le FPTP
-    o_err    : out std_logic
+    o_fs_f   : out std_logic;  
+    o_fptp   : out std_logic;   -- Feu pour le FPTP
+    o_fptp_f : out std_logic
   );
 end MEF_Projet_1;
 
@@ -53,23 +55,24 @@ architecture rtl of MEF_Projet_1 is
         i_cen   : in  std_logic;
         o_feu_v : out std_logic;
         o_feu_j : out std_logic;
-        o_feu_r : out std_logic
+        o_feu_r : out std_logic;
+        o_fin   : out std_logic
       );
     end component;
     
-       -- Déclaration du composant pour les feu de traffiques
-    component Feu_PTP is
+    -- Déclaration du composant pour le feu de priorite travers au pieton
+    component Feu_FPTP is
       generic (
-        G_DELAI       : positive;
-        G_DELAI_JAUNE : positive;
-        G_DELAI_SIZE  : positive
+        G_DELAI_CONTINU  : positive;
+        G_DELAI_CLIGNOTE : positive;
+        G_DELAI_SIZE     : positive
       );
       port (
-        i_clk   : in  std_logic;
-        i_rst   : in  std_logic;
-        i_cen   : in  std_logic;
-        o_feu   : out std_logic;
-        o_fin   : out std_logic
+        i_clk      : in  std_logic;
+        i_rst      : in  std_logic;
+        i_cen      : in  std_logic;
+        o_feu_FPTP : out std_logic;
+        o_fin      : out std_logic
       );
     end component;
 
@@ -92,9 +95,10 @@ architecture rtl of MEF_Projet_1 is
 
 begin
 
-    -- Assignation des feu rouge vers les outputs
-    o_fp_r <= fin_fp;
-    o_fs_r <= fin_fs;
+    -- Assignation des signaux fin vers les outputs
+    o_fp_f <= fin_fp;
+    o_fs_f <= fin_fs;
+    o_fptp_f <= fin_fptp;
 
     -------------------------------------
     -- Current State Logic
@@ -104,7 +108,6 @@ begin
        if rising_edge(i_clk) then
           if i_bi = '1' then
           -- Si le MÉF est initialiser, remet les valeurs au défaut
-             o_err         <= '0';
              en_fp         <= '0';
              en_fs         <= '0';
              en_fptp       <= '0';
@@ -135,10 +138,10 @@ begin
                  en_fp      <= '0';
                  en_fs      <= '0';
                  en_fptp    <= '0';  
-            end case;     
+            end case;
+            -- MÀJ l'état présent
+            current_state <= next_state;     
           end if;
-          -- MÀJ l'état présent
-          current_state <= next_state;
        end if;    
     end process;
 
@@ -188,7 +191,7 @@ begin
                 next_state <= FPTP;
              end if; 
           when others =>     
-             o_err <= '1';
+             next_state <= INIT;
        end case;
     end process;
 
@@ -197,7 +200,7 @@ begin
 -----------------------------------------------------------
 
     -- Instantiation du Feu Primaire (FP)
-    FEU_PRIMAIRE: Feu_Traffique
+    FEU_PRIMAIRE : Feu_Traffique
         generic map(
            G_DELAI       => G_DELAI,
            G_DELAI_JAUNE => G_DELAI_JAUNE,
@@ -208,7 +211,8 @@ begin
            i_cen => en_fp,
            o_feu_v => o_fp_v,  
            o_feu_j => o_fp_j,  
-           o_feu_r => fin_fp);  
+           o_feu_r => o_fp_r,
+           o_fin   => fin_fp);  
 
     -- Instantiation du Feu Secondaire (FS)
     FEU_SECONDAIRE : Feu_Traffique
@@ -222,19 +226,21 @@ begin
            i_cen   => en_fs,
            o_feu_v => o_fs_v, 
            o_feu_j => o_fs_j, 
-           o_feu_r => fin_fs); 
+           o_feu_r => o_fs_r,
+           o_fin   => fin_fs); 
            
            
     -- Instantiation du Feu Priorite a Travers des Pietons (FPTP)
-    FEU_PTP : Feu_PTP
+    FEU_PTP : Feu_FPTP
         generic map(
-           G_DELAI       => G_DELAI,
-           G_DELAI_JAUNE => G_DELAI_JAUNE,
+           G_DELAI_CONTINU  => G_DELAI_JAUNE,
+           G_DELAI_CLIGNOTE => G_DELAI,
            G_DELAI_SIZE  => G_DELAI_SIZE)
         port map (
-           i_clk => i_clk,
-           i_rst => i_bi,
-           i_cen => en_fptp,
-           o_feu => fin_fptp);
+           i_clk      => i_clk,
+           i_rst      => i_bi,
+           i_cen      => en_fptp,
+           o_feu_FPTP => o_fptp,
+           o_fin      => fin_fptp);
 
 end rtl;
