@@ -113,6 +113,7 @@ begin
              en_fp         <= '0';
              en_fs         <= '0';
              en_fptp       <= '0';
+             current_state <= INIT;
           else
             case next_state is
               when INIT =>
@@ -156,6 +157,8 @@ begin
           s_sa <= '1';
           o_sa <= '1';
        end if;
+     
+          
        case current_state is
           when INIT =>
           -- Lors du INIT, va directement à FP

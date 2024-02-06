@@ -79,9 +79,17 @@ begin
 
   reset_gen : process
   begin
-    reset <= '1',
-             '0' after 100 ns;
-    wait;
+     reset <= '0';
+     wait for 1000 ns;
+     reset <= '1';
+     wait for 100 ns;
+     reset <= '0';
+     wait for 4000 ns;
+     reset <= '1';
+     wait for 100 ns;
+     reset <= '0';
+     wait;
+    
   end process;
 
 --------------------------------------------------------------------------------
@@ -90,6 +98,14 @@ begin
   main : process
   begin
      i_bap <= '0';
+     wait for 1000 ns;
+     i_bap <= '1';
+     wait for 100 ns;
+     i_bap <= '0';
+     wait for 1000 ns;
+     i_bap <= '1';
+     wait for 100 ns;
+      i_bap <= '0';
      wait for 1000 ns;
      i_bap <= '1';
      wait for 100 ns;
