@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Feu_Traffique_TB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'MEF_Projet_1'
