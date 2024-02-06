@@ -50,6 +50,7 @@ begin
            delai_sig  <= (others => '0');
            o_feu_FPTP <= '0';
            o_fin      <= '0';
+           current_state <= ETEINT;
         else
            case next_state is
               when ETEINT =>

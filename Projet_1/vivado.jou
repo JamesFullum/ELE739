@@ -29,3 +29,18 @@ source Feu_Traffique_TB.tcl
 current_wave_config {Untitled 2}
 add_wave {{/Feu_Traffique_TB/DUT}} 
 run all
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+source Feu_Traffique_TB.tcl
+current_wave_config {Untitled 3}
+add_wave {{/Feu_Traffique_TB/DUT}} 
+run all
+close_sim
+launch_simulation
+source Feu_Traffique_TB.tcl
+current_wave_config {Untitled 4}
+add_wave {{/Feu_Traffique_TB/DUT}} 
+run all

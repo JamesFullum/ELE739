@@ -257,3 +257,243 @@ Untitled 2
 add_wave {{/Feu_Traffique_TB/DUT}} 
 run all
 run: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 1570.500 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\MEF_Projet_1.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_PTP.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\MEF_Projet_1.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_PTP.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique_TB.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+ERROR: [Common 17-180] Spawn failed: No error
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Feu_Traffique_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Feu_Traffique_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Feu_Traffique_TB_vhdl.prj"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Feu_Traffique_TB'
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:82]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:84]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:86]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:88]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:90]
+ERROR: [VRFC 10-9458] unit 'testbench' is ignored due to previous errors [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:19]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd' is ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Feu_Traffique_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Feu_Traffique_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Feu_Traffique_TB_vhdl.prj"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Feu_Traffique_TB'
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:82]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:84]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:86]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:88]
+ERROR: [VRFC 10-2989] 'i_bi' is not declared [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:90]
+ERROR: [VRFC 10-9458] unit 'testbench' is ignored due to previous errors [C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd:19]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd' is ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\MEF_Projet_1.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique_TB.vhd:]
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Feu_Traffique_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Feu_Traffique_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+ERROR: [Common 17-180] Spawn failed: No error
+"xvhdl --incr --relax -prj Feu_Traffique_TB_vhdl.prj"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Feu_Traffique_TB'
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+ERROR: [USF-XSim-62] 'compile' step failed with error(s) while executing 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim/compile.bat' script. Please check that the file has the correct 'read/write/execute' permissions and the Tcl console output for any other possible errors or warnings.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Feu_Traffique_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Feu_Traffique_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Feu_Traffique_TB_vhdl.prj"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Feu_Traffique_TB_behav xil_defaultlib.Feu_Traffique_TB -log elaborate.log"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Feu_Traffique_TB_behav xil_defaultlib.Feu_Traffique_TB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.Feu_Traffique [\Feu_Traffique(g_delai_jaune=5,g...]
+Compiling architecture rtl of entity xil_defaultlib.FEU_FPTP [\FEU_FPTP(g_delai_continu=5,g_de...]
+Compiling architecture rtl of entity xil_defaultlib.MEF_Projet_1 [\MEF_Projet_1(g_delai=10,g_delai...]
+Compiling architecture testbench of entity xil_defaultlib.feu_traffique_tb
+Built simulation snapshot Feu_Traffique_TB_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Feu_Traffique_TB_behav -key {Behavioral:sim_1:Functional:Feu_Traffique_TB} -tclbatch {Feu_Traffique_TB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source Feu_Traffique_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Feu_Traffique_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1570.500 ; gain = 0.000
+current_wave_config {Untitled 3}
+Untitled 3
+add_wave {{/Feu_Traffique_TB/DUT}} 
+run all
+run: Time (s): cpu = 00:00:22 ; elapsed = 00:00:16 . Memory (MB): peak = 1570.500 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\MEF_Projet_1.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique_TB.vhd:]
+close_sim
+INFO: xsimkernel Simulation Memory Usage: 18716 KB (Peak: 18716 KB), Simulation CPU Usage: 10390 ms
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'Feu_Traffique_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'Feu_Traffique_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Feu_Traffique_TB_vhdl.prj"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'MEF_Projet_1'
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Feu_Traffique_TB_behav xil_defaultlib.Feu_Traffique_TB -log elaborate.log"
+Commande ECHO d‚sactiv‚e.
+Commande ECHO d‚sactiv‚e.
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Feu_Traffique_TB_behav xil_defaultlib.Feu_Traffique_TB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.Feu_Traffique [\Feu_Traffique(g_delai_jaune=5,g...]
+Compiling architecture rtl of entity xil_defaultlib.FEU_FPTP [\FEU_FPTP(g_delai_continu=5,g_de...]
+Compiling architecture rtl of entity xil_defaultlib.MEF_Projet_1 [\MEF_Projet_1(g_delai=10,g_delai...]
+Compiling architecture testbench of entity xil_defaultlib.feu_traffique_tb
+Built simulation snapshot Feu_Traffique_TB_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/guill/Desktop/ELE739/ELE739-Projet_1/Projet_1/Projet_1.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "Feu_Traffique_TB_behav -key {Behavioral:sim_1:Functional:Feu_Traffique_TB} -tclbatch {Feu_Traffique_TB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source Feu_Traffique_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Feu_Traffique_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1570.500 ; gain = 0.000
+current_wave_config {Untitled 4}
+Untitled 4
+add_wave {{/Feu_Traffique_TB/DUT}} 
+run all
+run: Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 1570.500 ; gain = 0.000
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\MEF_Projet_1.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\MEF_Projet_1.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\guill\Desktop\ELE739\ELE739-Projet_1\Projet_1\Projet_1.srcs\sources_1\new\Feu_Traffique_TB.vhd:]

@@ -80,11 +80,19 @@ begin
   reset_gen : process
   begin
      reset <= '0';
-     wait for 1000 ns;
+     wait for 1400 ns;
      reset <= '1';
      wait for 100 ns;
      reset <= '0';
-     wait for 4000 ns;
+--     wait for 1800 ns;
+--     reset <= '1';
+--     wait for 100 ns;
+--     reset <= '0';
+     wait for 1100 ns;
+     reset <= '1';
+     wait for 100 ns;
+     reset <= '0';
+     wait for 300 ns;
      reset <= '1';
      wait for 100 ns;
      reset <= '0';
