@@ -1,4 +1,0 @@
-Running: xsim.dir/Feu_Traffique_TB_behav/xsimk.exe -simmode gui -wdb Feu_Traffique_TB_behav.wdb -simrunnum 0 -socket 63375
-Design successfully loaded
-Design Loading Memory Usage: 8000 KB (Peak: 8000 KB)
-Design Loading CPU Usage: 0 ms

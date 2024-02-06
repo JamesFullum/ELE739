@@ -93,7 +93,11 @@ architecture rtl of MEF_Projet_1 is
     signal fin_fs   : std_logic;
     signal fin_fptp : std_logic;
 
+    -- Signal pour controller le témoin SA
+    signal s_sa     : std_logic;
 begin
+
+    assert G_DELAI > G_DELAI_JAUNE report "G_DELAI_JAUNE ne peut pas être plus gros que G_DELAI" severity failure;
 
     -- Assignation des signaux fin vers les outputs
     o_fp_f <= fin_fp;
@@ -111,6 +115,7 @@ begin
              en_fp         <= '0';
              en_fs         <= '0';
              en_fptp       <= '0';
+             current_state <= INIT;
           else
             case next_state is
               when INIT =>
@@ -150,6 +155,12 @@ begin
     --------------------------------------
     process(i_bap, fin_fp, fin_fs, fin_fptp, current_state)
     begin
+       if i_bap = '1' then 
+          s_sa <= '1';
+          o_sa <= '1';
+       end if;
+     
+          
        case current_state is
           when INIT =>
           -- Lors du INIT, va directement à FP
@@ -157,7 +168,7 @@ begin
           when FP =>
              if fin_fp = '1' then
              -- Si le cycle FP est terminé
-                if i_bap = '1' then
+                if i_bap = '1' or s_sa = '1' then
                 -- Si le BAP à été peser, va au FPTP
                    next_state <= FPTP;
                 else
@@ -171,7 +182,7 @@ begin
           when FS =>
              if fin_fs = '1' then
              -- Si le cycle FS est terminé
-                if i_bap = '1' then
+                if i_bap = '1' or s_sa = '1' then
                 -- Si le BAP à été peser, va au FPTP
                    next_state <= FPTP;
                 else
@@ -183,6 +194,8 @@ begin
                 next_state <= FS;
              end if; 
           when FPTP =>
+             s_sa <= '0';
+             o_sa <= '0';
              if fin_fptp = '1' then
              -- Si le cycle FPTP est terminé
                 next_state <= FP;

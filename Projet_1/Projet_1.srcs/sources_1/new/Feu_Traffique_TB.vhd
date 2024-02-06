@@ -20,7 +20,7 @@ architecture testbench of Feu_Traffique_TB is
 
   -- Définition des paramètres génériques du module testé en constantes
   constant G_DELAI       : positive := 10;
-  constant G_DELAI_JAUNE : positive := 5;
+  constant G_DELAI_JAUNE : positive := 11;
   constant G_DELAI_SIZE  : positive := 12;
 
   -- Déclaration du composant à tester
@@ -79,9 +79,25 @@ begin
 
   reset_gen : process
   begin
-    reset <= '1',
-             '0' after 100 ns;
-    wait;
+     reset <= '0';
+     wait for 1400 ns;
+     reset <= '1';
+     wait for 100 ns;
+     reset <= '0';
+--     wait for 1800 ns;
+--     reset <= '1';
+--     wait for 100 ns;
+--     reset <= '0';
+     wait for 1100 ns;
+     reset <= '1';
+     wait for 100 ns;
+     reset <= '0';
+     wait for 300 ns;
+     reset <= '1';
+     wait for 100 ns;
+     reset <= '0';
+     wait;
+    
   end process;
 
 --------------------------------------------------------------------------------
@@ -90,6 +106,14 @@ begin
   main : process
   begin
      i_bap <= '0';
+     wait for 1000 ns;
+     i_bap <= '1';
+     wait for 100 ns;
+     i_bap <= '0';
+     wait for 1000 ns;
+     i_bap <= '1';
+     wait for 100 ns;
+      i_bap <= '0';
      wait for 1000 ns;
      i_bap <= '1';
      wait for 100 ns;
