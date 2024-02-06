@@ -98,7 +98,9 @@ architecture rtl of MEF_Projet_1 is
 begin
 
     assert G_DELAI > G_DELAI_JAUNE report "G_DELAI_JAUNE ne peut pas être plus gros que G_DELAI" severity failure;
-
+    assert 2**G_DELAI_SIZE > G_DELAI report "La taille du delai a besoin d'accomoder le valeur du délai" severity failure;
+    
+    
     -- Assignation des signaux fin vers les outputs
     o_fp_f <= fin_fp;
     o_fs_f <= fin_fs;
