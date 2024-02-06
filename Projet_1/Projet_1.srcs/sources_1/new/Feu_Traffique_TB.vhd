@@ -19,9 +19,9 @@ end entity Feu_Traffique_TB;
 architecture testbench of Feu_Traffique_TB is
 
   -- Définition des paramètres génériques du module testé en constantes
-  constant G_DELAI       : positive := 1000;
-  constant G_DELAI_JAUNE : positive := 9;
-  constant G_DELAI_SIZE  : positive := 4;
+  constant G_DELAI       : positive := 10;
+  constant G_DELAI_JAUNE : positive := 5;
+  constant G_DELAI_SIZE  : positive := 8;
 
   -- Déclaration du composant à tester
   component MEF_PROJET_1 is

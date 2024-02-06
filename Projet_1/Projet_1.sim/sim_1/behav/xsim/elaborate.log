@@ -5,15 +5,4 @@ Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling architecture rtl of entity xil_defaultlib.Feu_Traffique [\Feu_Traffique(g_delai=1000,g_de...]
-Compiling architecture rtl of entity xil_defaultlib.FEU_FPTP [\FEU_FPTP(g_delai_continu=9,g_de...]
-Compiling architecture rtl of entity xil_defaultlib.MEF_Projet_1 [\MEF_Projet_1(g_delai=1000,g_del...]
-Compiling architecture testbench of entity xil_defaultlib.feu_traffique_tb
-Built simulation snapshot Feu_Traffique_TB_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
