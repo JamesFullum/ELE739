@@ -47,39 +47,41 @@ begin
      if rising_edge(i_clk) then
         -- Réinitialiser le compteur et éteindre la lumière
         if i_rst = '1' then
-           delai_sig  <= (others => '0');
-           o_feu_FPTP <= '0';
-           o_fin      <= '0';
+           delai_sig     <= (others => '0');
+           o_feu_FPTP    <= '0';
+           o_fin         <= '0';
            current_state <= ETEINT;
         else
-           case next_state is
-              when ETEINT =>
-                 o_feu_FPTP <= '0';
-                 o_fin      <= '0';
-                 delai_sig  <= (others => '0');
-              when DONE =>
-                 o_feu_FPTP <= '0';
-                 o_fin      <= '1';
-                 delai_sig  <= (others => '0');
-              when CLIGNOTE =>
-                 o_feu_FPTP <= delai_sig(0);
-                 o_fin      <= '0';
-                 delai_sig <= delai_sig + 1;
-              when CONTINU  =>
-                 o_feu_FPTP <= '1';
-                 o_fin      <= '0';
-                 delai_sig <= delai_sig + 1;        
-              when others =>
-                 o_feu_FPTP <= '0';
-                 o_fin      <= '0';
-              end case;
-            current_state <= next_state;
+           if i_cen = '1' then
+              case next_state is
+                 when ETEINT =>
+                    o_feu_FPTP <= '0';
+                    o_fin      <= '0';
+                    delai_sig  <= (others => '0');
+                 when DONE =>
+                    o_feu_FPTP <= '0';
+                    o_fin      <= '1';
+                    delai_sig  <= (others => '0');
+                 when CLIGNOTE =>
+                    o_feu_FPTP <= delai_sig(0);
+                    o_fin      <= '0';
+                    delai_sig  <= delai_sig + 1;
+                 when CONTINU  =>
+                    o_feu_FPTP <= '1';
+                    o_fin      <= '0';
+                    delai_sig  <= delai_sig + 1;        
+                 when others =>
+                    o_feu_FPTP <= '0';
+                    o_fin      <= '0';
+                    delai_sig  <= (others => '0');
+                 end case;
+                 current_state <= next_state;
+            end if;
          end if;
       end if;
    end process;
    
-   
-   -------------------------------------
+  -------------------------------------
   -- Next State Logic
   -------------------------------------  
   process(delai_sig, current_state, i_cen)

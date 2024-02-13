@@ -55,41 +55,44 @@ begin
            o_feu_v    <= '0';
            o_feu_j    <= '0';
            o_feu_r    <= '1';
+           o_fin      <= '0';
            current_state <= ROUGE;
         else
-           case next_state is
-              when ROUGE  =>
-                 o_feu_r <= '1';
-                 o_feu_j <= '0';
-                 o_feu_v <= '0';
-                 o_fin   <= '0';
-                 delai_sig <= (others => '0');
-              when DONE =>
-                 o_feu_r <= '1';
-                 o_feu_j <= '0';
-                 o_feu_v <= '0';
-                 o_fin   <= '1';
-                 delai_sig <= (others => '0');
-              when JAUNE =>
-                 o_feu_r <= '0';
-                 o_feu_j <= '1';
-                 o_feu_v <= '0';
-                 o_fin   <= '0';
-                 delai_sig <= delai_sig + 1;
-              when VERT  =>
-                 o_feu_r <= '0';
-                 o_feu_j <= '0';
-                 o_feu_v <= '1';
-                 o_fin   <= '0';  
-                 delai_sig <= delai_sig + 1;        
-              when others =>
-                 o_feu_r <= '1';
-                 o_feu_j <= '0';
-                 o_feu_v <= '0';
-                 o_fin   <= '0';
-                 delai_sig <= (others => '0');
-              end case;
-              current_state <= next_state;
+           if i_cen = '1' then
+              case next_state is
+                 when ROUGE  =>
+                    o_feu_r <= '1';
+                    o_feu_j <= '0';
+                    o_feu_v <= '0';
+                    o_fin   <= '0';
+                    delai_sig <= (others => '0');
+                 when DONE =>
+                    o_feu_r <= '1';
+                    o_feu_j <= '0';
+                    o_feu_v <= '0';
+                    o_fin   <= '1';
+                    delai_sig <= (others => '0');
+                 when JAUNE =>
+                    o_feu_r <= '0';
+                    o_feu_j <= '1';
+                    o_feu_v <= '0';
+                    o_fin   <= '0';
+                    delai_sig <= delai_sig + 1;
+                 when VERT  =>
+                    o_feu_r <= '0';
+                    o_feu_j <= '0';
+                    o_feu_v <= '1';
+                    o_fin   <= '0';  
+                    delai_sig <= delai_sig + 1;        
+                 when others =>
+                    o_feu_r <= '1';
+                    o_feu_j <= '0';
+                    o_feu_v <= '0';
+                    o_fin   <= '0';
+                    delai_sig <= (others => '0');
+                 end case;
+                 current_state <= next_state;
+            end if;
          end if;
       end if;
    end process;

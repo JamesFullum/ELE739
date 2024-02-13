@@ -3,6 +3,7 @@ vhdl xil_defaultlib  \
 "../../../../Projet_1.srcs/sources_1/new/Feu_PTP.vhd" \
 "../../../../Projet_1.srcs/sources_1/new/Feu_Traffique.vhd" \
 "../../../../Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd" \
+"../../../../Projet_1.srcs/sources_1/new/PRESCALAR.vhd" \
 "../../../../Projet_1.srcs/sources_1/new/Feu_Traffique_TB.vhd" \
 
 # Do not sort compile order

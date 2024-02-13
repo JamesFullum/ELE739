@@ -76,6 +76,20 @@ architecture rtl of MEF_Projet_1 is
       );
     end component;
 
+    -- Declaration du prescalar
+    component PRESCALAR is
+      generic (
+        G_DELAI          : positive;
+        G_DELAI_SIZE     : positive
+      );
+      port (
+        i_clk      : in  std_logic;
+        i_rst      : in  std_logic;
+        i_cen      : in  std_logic;
+        o_fin      : out std_logic
+      );
+    end component;
+
     -- datatype pour gérées les états du MÉF
     type traffic_state is (INIT, FP, FS, FPTP); 
     
@@ -87,6 +101,11 @@ architecture rtl of MEF_Projet_1 is
     signal en_fp   : std_logic;
     signal en_fs   : std_logic;
     signal en_fptp : std_logic;
+    
+    -- signals pour contrôler les prescalars
+    signal en_fp_p   : std_logic;
+    signal en_fs_p   : std_logic;
+    signal en_fptp_p : std_logic;
     
     -- signals pour signifier la fin du feu de traffique
     signal fin_fp   : std_logic;
@@ -114,37 +133,37 @@ begin
        if rising_edge(i_clk) then
           if i_bi = '1' then
           -- Si le MÉF est initialiser, remet les valeurs au défaut
-             en_fp         <= '0';
-             en_fs         <= '0';
-             en_fptp       <= '0';
+             en_fp_p         <= '0';
+             en_fs_p         <= '0';
+             en_fptp_p       <= '0';
              current_state <= INIT;
           else
             case next_state is
               when INIT =>
               -- Pour INIT, tous les chips sont désactivés
-                 en_fp      <= '0';
-                 en_fs      <= '0';
-                 en_fptp    <= '0';  
+                 en_fp_p      <= '0';
+                 en_fs_p      <= '0';
+                 en_fptp_p    <= '0';  
               when FP   =>
               -- Pour FP, le chip FP est activé, et la valeur du dernier état est màj
-                 en_fp      <= '1';
-                 en_fs      <= '0';
-                 en_fptp    <= '0';              
+                 en_fp_p      <= '1';
+                 en_fs_p      <= '0';
+                 en_fptp_p    <= '0';              
               when FS   =>
               -- Pour FP, le chip FS est activé, et la valeur du dernier état est màj
-                 en_fp      <= '0';
-                 en_fs      <= '1';
-                 en_fptp    <= '0'; 
+                 en_fp_p      <= '0';
+                 en_fs_p      <= '1';
+                 en_fptp_p    <= '0'; 
               when FPTP =>
               -- Pour FPTP, le chip FPTP est activé
-                 en_fp      <= '0';
-                 en_fs      <= '0';
-                 en_fptp    <= '1'; 
+                 en_fp_p      <= '0';
+                 en_fs_p      <= '0';
+                 en_fptp_p    <= '1'; 
               when others =>
                  -- Pour tous autres cas, tous les chips sont désactivés
-                 en_fp      <= '0';
-                 en_fs      <= '0';
-                 en_fptp    <= '0';  
+                 en_fp_p      <= '0';
+                 en_fs_p      <= '0';
+                 en_fptp_p    <= '0';  
             end case;
             -- MÀJ l'état présent
             current_state <= next_state;     
@@ -155,14 +174,12 @@ begin
     --------------------------------------
     -- Next State Logic
     --------------------------------------
-    process(i_bap, fin_fp, fin_fs, fin_fptp, current_state)
+    process(i_bap, fin_fp, fin_fs, fin_fptp, current_state, s_sa)
     begin
        if i_bap = '1' then 
           s_sa <= '1';
           o_sa <= '1';
        end if;
-     
-          
        case current_state is
           when INIT =>
           -- Lors du INIT, va directement à FP
@@ -227,8 +244,18 @@ begin
            o_feu_v => o_fp_v,  
            o_feu_j => o_fp_j,  
            o_feu_r => o_fp_r,
-           o_fin   => fin_fp);  
-
+           o_fin   => fin_fp);
+           
+    PRESCALAR_PRIMAIRE: PRESCALAR
+        generic map(
+            G_DELAI      => 3,
+            G_DELAI_SIZE => G_DELAI_SIZE)
+        port map(
+           i_clk => i_clk,
+           i_rst => i_bi,
+           i_cen => en_fp_p,
+           o_fin => en_fp);
+           
     -- Instantiation du Feu Secondaire (FS)
     FEU_SECONDAIRE : Feu_Traffique
         generic map(
@@ -243,7 +270,16 @@ begin
            o_feu_j => o_fs_j, 
            o_feu_r => o_fs_r,
            o_fin   => fin_fs); 
-           
+     
+    PRESCALAR_SECONDAIRE: PRESCALAR
+        generic map(
+           G_DELAI      => 3,
+           G_DELAI_SIZE => G_DELAI_SIZE)
+        port map(
+           i_clk => i_clk,
+           i_rst => i_bi,
+           i_cen => en_fs_p,
+           o_fin => en_fs);
            
     -- Instantiation du Feu Priorite a Travers des Pietons (FPTP)
     FEU_PTP : Feu_FPTP
@@ -257,5 +293,15 @@ begin
            i_cen      => en_fptp,
            o_feu_FPTP => o_fptp,
            o_fin      => fin_fptp);
+
+    PRESCALAR_PTP: PRESCALAR
+        generic map(
+            G_DELAI      => 3,
+            G_DELAI_SIZE => G_DELAI_SIZE)
+        port map(
+           i_clk => i_clk,
+           i_rst => i_bi,
+           i_cen => en_fptp_p,
+           o_fin => en_fptp);
 
 end rtl;
