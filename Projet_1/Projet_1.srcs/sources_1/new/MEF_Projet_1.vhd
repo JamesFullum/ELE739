@@ -18,13 +18,14 @@ entity MEF_Projet_1 is
   generic (
     G_DELAI       : positive := 6;
     G_DELAI_JAUNE : positive := 3;
-    G_DELAI_SIZE  : positive := 7
+    G_DELAI_SIZE  : positive := 27
   );
 
   -- Déclaration des ports d'entrées et sorties du MÉF
   port (
     i_clk    : in  std_logic;
     i_bi     : in  std_logic;
+    i_cen    : in  std_logic;
     i_bap    : in  std_logic;  -- Bouton à piétons
     o_sa     : out std_logic;
     o_fp_v   : out std_logic;  -- Feu vert pour le FP
@@ -136,50 +137,64 @@ begin
              en_fp_p         <= '0';
              en_fs_p         <= '0';
              en_fptp_p       <= '0';
-             current_state <= INIT;
+             s_sa            <= '0';
+             current_state   <= INIT;
           else
+            if i_cen = '1' then
             case next_state is
               when INIT =>
               -- Pour INIT, tous les chips sont désactivés
                  en_fp_p      <= '0';
                  en_fs_p      <= '0';
                  en_fptp_p    <= '0';  
+                 if i_bap = '1' then 
+                    s_sa <= '1';
+                 end if; 
               when FP   =>
               -- Pour FP, le chip FP est activé, et la valeur du dernier état est màj
                  en_fp_p      <= '1';
                  en_fs_p      <= '0';
-                 en_fptp_p    <= '0';              
+                 en_fptp_p    <= '0';
+                 if i_bap = '1' then 
+                    s_sa <= '1';
+                 end if;              
               when FS   =>
               -- Pour FP, le chip FS est activé, et la valeur du dernier état est màj
                  en_fp_p      <= '0';
                  en_fs_p      <= '1';
                  en_fptp_p    <= '0'; 
+                 if i_bap = '1' then 
+                    s_sa <= '1';
+                 end if;   
               when FPTP =>
               -- Pour FPTP, le chip FPTP est activé
                  en_fp_p      <= '0';
                  en_fs_p      <= '0';
-                 en_fptp_p    <= '1'; 
+                 en_fptp_p    <= '1';
+                 if fin_fptp = '0' then
+                    s_sa         <= '0';
+                 end if;
               when others =>
                  -- Pour tous autres cas, tous les chips sont désactivés
                  en_fp_p      <= '0';
                  en_fs_p      <= '0';
-                 en_fptp_p    <= '0';  
+                 en_fptp_p    <= '0'; 
+                 s_sa         <= '0'; 
             end case;
             -- MÀJ l'état présent
-            current_state <= next_state;     
+            current_state <= next_state;
+            end if;     
           end if;
        end if;    
     end process;
 
+    o_sa <= s_sa;
+
     --------------------------------------
     -- Next State Logic
     --------------------------------------
-    process(i_bap, fin_fp, fin_fs, fin_fptp, current_state, s_sa)
+    process(fin_fp, fin_fs, fin_fptp, current_state, s_sa)
     begin
-       if i_bap = '1' then 
-          s_sa <= '1';
-          o_sa <= '1';
-       end if;
        case current_state is
           when INIT =>
           -- Lors du INIT, va directement à FP
@@ -187,7 +202,7 @@ begin
           when FP =>
              if fin_fp = '1' then
              -- Si le cycle FP est terminé
-                if i_bap = '1' or s_sa = '1' then
+                if s_sa = '1' then
                 -- Si le BAP à été peser, va au FPTP
                    next_state <= FPTP;
                 else
@@ -201,7 +216,7 @@ begin
           when FS =>
              if fin_fs = '1' then
              -- Si le cycle FS est terminé
-                if i_bap = '1' or s_sa = '1' then
+                if s_sa = '1' then
                 -- Si le BAP à été peser, va au FPTP
                    next_state <= FPTP;
                 else
@@ -213,9 +228,7 @@ begin
                 next_state <= FS;
              end if; 
           when FPTP =>
-             s_sa <= '0';
-             o_sa <= '0';
-             if fin_fptp = '1' then
+             if fin_fptp = '1' and s_sa = '0' then
              -- Si le cycle FPTP est terminé
                 next_state <= FP;
              else
@@ -248,8 +261,8 @@ begin
            
     PRESCALAR_PRIMAIRE: PRESCALAR
         generic map(
-            G_DELAI      => 3,
-            G_DELAI_SIZE => G_DELAI_SIZE)
+           G_DELAI      => 100000000,
+           G_DELAI_SIZE => G_DELAI_SIZE)
         port map(
            i_clk => i_clk,
            i_rst => i_bi,
@@ -273,7 +286,7 @@ begin
      
     PRESCALAR_SECONDAIRE: PRESCALAR
         generic map(
-           G_DELAI      => 3,
+           G_DELAI      => 100000000,
            G_DELAI_SIZE => G_DELAI_SIZE)
         port map(
            i_clk => i_clk,
@@ -286,7 +299,7 @@ begin
         generic map(
            G_DELAI_CONTINU  => G_DELAI_JAUNE,
            G_DELAI_CLIGNOTE => G_DELAI,
-           G_DELAI_SIZE  => G_DELAI_SIZE)
+           G_DELAI_SIZE     => G_DELAI_SIZE)
         port map (
            i_clk      => i_clk,
            i_rst      => i_bi,
@@ -296,8 +309,8 @@ begin
 
     PRESCALAR_PTP: PRESCALAR
         generic map(
-            G_DELAI      => 3,
-            G_DELAI_SIZE => G_DELAI_SIZE)
+           G_DELAI      => 100000000,
+           G_DELAI_SIZE => G_DELAI_SIZE)
         port map(
            i_clk => i_clk,
            i_rst => i_bi,

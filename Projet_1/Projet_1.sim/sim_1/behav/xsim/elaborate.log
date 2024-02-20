@@ -1,8 +1,22 @@
 Vivado Simulator v2023.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot Feu_Traffique_TB_behav xil_defaultlib.Feu_Traffique_TB -log elaborate.log 
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Feu_Traffique_TB_behav xil_defaultlib.Feu_Traffique_TB xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling module xil_defaultlib.glbl
+Compiling architecture rtl of entity xil_defaultlib.Feu_Traffique [\Feu_Traffique(g_delai_jaune=5,g...]
+Compiling architecture rtl of entity xil_defaultlib.PRESCALAR [\PRESCALAR(g_delai=100000000,g_d...]
+Compiling architecture rtl of entity xil_defaultlib.FEU_FPTP [\FEU_FPTP(g_delai_continu=5,g_de...]
+Compiling architecture rtl of entity xil_defaultlib.MEF_Projet_1 [\MEF_Projet_1(g_delai=10,g_delai...]
+Compiling architecture testbench of entity xil_defaultlib.feu_traffique_tb
+Built simulation snapshot Feu_Traffique_TB_behav

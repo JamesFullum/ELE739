@@ -17,7 +17,7 @@ entity TOP is
   generic (
     G_DELAI       : positive := 6;
     G_DELAI_JAUNE : positive := 3;
-    G_DELAI_SIZE  : positive := 7
+    G_DELAI_SIZE  : positive := 27
   );
 
   -- Déclaration des ports d'entrées et sorties du MÉF
@@ -25,7 +25,7 @@ entity TOP is
     clk  : in std_logic;
     btnC : in std_logic;
     btnU : in std_logic;
-    led  : out std_logic_vector(8 downto 0)
+    led  : out std_logic_vector(7 downto 0)
   );
   
     -- Définition des ports du module testé en signaux
@@ -43,9 +43,26 @@ entity TOP is
   signal fs_f_int   : std_logic;
   signal fptp_int   : std_logic;   
   signal fptp_f_int : std_logic;
+  
+  signal cen  : std_logic;
+  
 end TOP;
 
 architecture rtl of TOP is
+
+    -- Declaration du prescalar
+    component PRESCALAR is
+      generic (
+        G_DELAI          : positive;
+        G_DELAI_SIZE     : positive
+      );
+      port (
+        i_clk      : in  std_logic;
+        i_rst      : in  std_logic;
+        i_cen      : in  std_logic;
+        o_fin      : out std_logic
+      );
+    end component;  
 
 
   component MEF_Projet_1 is
@@ -60,6 +77,7 @@ architecture rtl of TOP is
       port (
         i_clk    : in  std_logic;
         i_bi     : in  std_logic;
+        i_cen    : in  std_logic;
         i_bap    : in  std_logic;  -- Bouton à piétons
         o_sa     : out std_logic;
         o_fp_v   : out std_logic;  -- Feu vert pour le FP
@@ -103,9 +121,9 @@ begin
  led(0)  <= fp_v_int;
  led(1)  <= fp_j_int;
  led(2)  <= fp_r_int;
- led(3)  <= fp_v_int;
- led(4)  <= fp_j_int;
- led(5)  <= fp_r_int;
+ led(3)  <= fs_v_int;
+ led(4)  <= fs_j_int;
+ led(5)  <= fs_r_int;
  led(6)  <= fptp_int;
  led(7)  <= sa_int;
  
@@ -115,9 +133,10 @@ begin
       G_DELAI_JAUNE => G_DELAI_JAUNE,
       G_DELAI_SIZE  => G_DELAI_SIZE)
     port map (
-      i_clk      => clk,
+      i_clk      => clk_int,
       i_bi       => bi_int,
       i_bap      => bap_int,
+      i_cen      => cen,
       o_sa       => sa_int,
       o_fp_v     => fp_v_int,
       o_fp_j     => fp_j_int,
@@ -129,10 +148,20 @@ begin
       o_fs_f     => fs_f_int,
       o_fptp     => fptp_int,
       o_fptp_f   => fptp_f_int);   
+      
+      PRESCALAR_PTP: PRESCALAR
+        generic map(
+         G_DELAI      => 99999999,
+         G_DELAI_SIZE => G_DELAI_SIZE)
+        port map(
+         i_clk => clk_int,
+         i_rst => bi_int,
+         i_cen => '1',
+         o_fin => cen);  
    
      ILA : ila_0
      port map(
-        clk      => clk_int,
+        clk     => clk_int,
         probe0  => bi_int,
         probe1  => bap_int,
         probe2  => sa_int,

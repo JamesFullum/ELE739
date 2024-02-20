@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Sun Feb 18 19:02:30 2024
-# Process ID: 7884
+# Start of session at: Mon Feb 19 21:54:43 2024
+# Process ID: 14976
 # Current directory: C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1
 # Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
 # Log file: C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/TOP.vds
@@ -20,83 +20,92 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 14516
+INFO: [Synth 8-7075] Helper process launched with PID 14872
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1300.512 ; gain = 409.391
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1301.227 ; gain = 412.367
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'TOP' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:48]
+INFO: [Synth 8-638] synthesizing module 'TOP' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:51]
 	Parameter G_DELAI bound to: 6 - type: integer 
 	Parameter G_DELAI_JAUNE bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'MEF_Projet_1' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:16' bound to instance 'DUT' of component 'MEF_Projet_1' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:112]
-INFO: [Synth 8-638] synthesizing module 'MEF_Projet_1' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:43]
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'MEF_Projet_1' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:16' bound to instance 'DUT' of component 'MEF_Projet_1' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'MEF_Projet_1' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:44]
 	Parameter G_DELAI bound to: 6 - type: integer 
 	Parameter G_DELAI_JAUNE bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:141]
-INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:183]
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:144]
+INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:198]
 	Parameter G_DELAI bound to: 6 - type: integer 
 	Parameter G_DELAI_JAUNE bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'Feu_Traffique' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:15' bound to instance 'FEU_PRIMAIRE' of component 'Feu_Traffique' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:235]
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'Feu_Traffique' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:15' bound to instance 'FEU_PRIMAIRE' of component 'Feu_Traffique' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:248]
 INFO: [Synth 8-638] synthesizing module 'Feu_Traffique' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:35]
 	Parameter G_DELAI bound to: 6 - type: integer 
 	Parameter G_DELAI_JAUNE bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
 INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:62]
 INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:105]
 INFO: [Synth 8-256] done synthesizing module 'Feu_Traffique' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:35]
-	Parameter G_DELAI bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_PRIMAIRE' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:249]
+	Parameter G_DELAI bound to: 100000000 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_PRIMAIRE' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:262]
 INFO: [Synth 8-638] synthesizing module 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:31]
-	Parameter G_DELAI bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
+	Parameter G_DELAI bound to: 100000000 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'PRESCALAR' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:31]
 	Parameter G_DELAI bound to: 6 - type: integer 
 	Parameter G_DELAI_JAUNE bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'Feu_Traffique' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:15' bound to instance 'FEU_SECONDAIRE' of component 'Feu_Traffique' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:260]
-	Parameter G_DELAI bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_SECONDAIRE' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:274]
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'Feu_Traffique' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_Traffique.vhd:15' bound to instance 'FEU_SECONDAIRE' of component 'Feu_Traffique' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:273]
+	Parameter G_DELAI bound to: 100000000 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_SECONDAIRE' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:287]
 	Parameter G_DELAI_CONTINU bound to: 3 - type: integer 
 	Parameter G_DELAI_CLIGNOTE bound to: 6 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'FEU_FPTP' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_PTP.vhd:16' bound to instance 'FEU_PTP' of component 'Feu_FPTP' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:285]
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'FEU_FPTP' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_PTP.vhd:16' bound to instance 'FEU_PTP' of component 'Feu_FPTP' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:298]
 INFO: [Synth 8-638] synthesizing module 'FEU_FPTP' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_PTP.vhd:33]
 	Parameter G_DELAI_CONTINU bound to: 3 - type: integer 
 	Parameter G_DELAI_CLIGNOTE bound to: 6 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
 INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_PTP.vhd:56]
 INFO: [Synth 8-226] default block is never used [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_PTP.vhd:89]
 INFO: [Synth 8-256] done synthesizing module 'FEU_FPTP' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Feu_PTP.vhd:33]
-	Parameter G_DELAI bound to: 3 - type: integer 
-	Parameter G_DELAI_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_PTP' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:297]
-INFO: [Synth 8-256] done synthesizing module 'MEF_Projet_1' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:43]
-INFO: [Synth 8-3491] module 'ila_0' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/.Xil/Vivado-7884-LAPTOP-UPJBM0EE/realtime/ila_0_stub.v:6' bound to instance 'ILA' of component 'ila_0' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:133]
-INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/.Xil/Vivado-7884-LAPTOP-UPJBM0EE/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'ila_0' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/.Xil/Vivado-7884-LAPTOP-UPJBM0EE/realtime/ila_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'TOP' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:48]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ILA'. This will prevent further optimization [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:133]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'DUT'. This will prevent further optimization [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:112]
-WARNING: [Synth 8-7129] Port led[8] in module TOP is either unconnected or has no load
+	Parameter G_DELAI bound to: 100000000 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_PTP' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:310]
+INFO: [Synth 8-256] done synthesizing module 'MEF_Projet_1' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:44]
+	Parameter G_DELAI bound to: 99999999 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-3491] module 'PRESCALAR' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:15' bound to instance 'PRESCALAR_PTP' of component 'PRESCALAR' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'PRESCALAR__parameterized2' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:31]
+	Parameter G_DELAI bound to: 99999999 - type: integer 
+	Parameter G_DELAI_SIZE bound to: 27 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'PRESCALAR__parameterized2' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/PRESCALAR.vhd:31]
+INFO: [Synth 8-3491] module 'ila_0' declared at 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/.Xil/Vivado-14976-LAPTOP-UPJBM0EE/realtime/ila_0_stub.v:6' bound to instance 'ILA' of component 'ila_0' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:162]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/.Xil/Vivado-14976-LAPTOP-UPJBM0EE/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/.Xil/Vivado-14976-LAPTOP-UPJBM0EE/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'TOP' (0#1) [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:51]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'ILA'. This will prevent further optimization [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:162]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'PRESCALAR_PTP'. This will prevent further optimization [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:152]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'DUT'. This will prevent further optimization [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/Top_Implimentation.vhd:130]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1395.715 ; gain = 504.594
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1396.473 ; gain = 507.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1395.715 ; gain = 504.594
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1396.473 ; gain = 507.613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1395.715 ; gain = 504.594
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1396.473 ; gain = 507.613
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1395.715 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1396.473 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -109,37 +118,29 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1507.195 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1498.133 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1507.195 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1498.133 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for ILA. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1507.195 ; gain = 616.074
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Preparing Guide Design
----------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6895] The reference checkpoint C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/utils_1/imports/synth_1/feu_traffique.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
----------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1507.195 ; gain = 616.074
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'Feu_Traffique'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'FEU_FPTP'
@@ -162,7 +163,6 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                     done |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'FEU_FPTP'
-WARNING: [Synth 8-327] inferring latch for variable 's_sa_reg' [C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.srcs/sources_1/new/MEF_Projet_1.vhd:180]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -173,34 +173,24 @@ WARNING: [Synth 8-327] inferring latch for variable 's_sa_reg' [C:/Users/james/E
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'MEF_Projet_1'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
-
-
-Incremental Synthesis Report Summary:
-
-1. Incremental synthesis run: no
-
-   Reason for not running incremental synthesis : 
-
-
-INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input    7 Bit       Adders := 6     
+	   2 Input   27 Bit       Adders := 7     
 +---Registers : 
-	                7 Bit    Registers := 6     
-	                1 Bit    Registers := 16    
+	               27 Bit    Registers := 7     
+	                1 Bit    Registers := 18    
 +---Muxes : 
-	   4 Input    7 Bit        Muxes := 3     
+	   4 Input   27 Bit        Muxes := 3     
+	   2 Input   27 Bit        Muxes := 4     
 	   2 Input    2 Bit        Muxes := 23    
 	   4 Input    2 Bit        Muxes := 8     
-	   4 Input    1 Bit        Muxes := 12    
-	   2 Input    1 Bit        Muxes := 3     
-	   3 Input    1 Bit        Muxes := 3     
+	   4 Input    1 Bit        Muxes := 10    
+	   3 Input    1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -217,27 +207,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port led[8] in module TOP is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -255,37 +244,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -299,46 +288,46 @@ Report BlackBoxes:
 +------+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |ila   |     1|
-|2     |BUFG  |     1|
-|3     |LUT2  |     9|
-|4     |LUT3  |    10|
-|5     |LUT4  |     9|
-|6     |LUT5  |    23|
-|7     |LUT6  |    23|
-|8     |FDRE  |    49|
-|9     |FDSE  |     2|
-|10    |LD    |     1|
-|11    |IBUF  |     3|
-|12    |OBUF  |     8|
-|13    |OBUFT |     1|
-+------+------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |ila    |     1|
+|2     |BUFG   |     1|
+|3     |CARRY4 |    49|
+|4     |LUT1   |     1|
+|5     |LUT2   |     8|
+|6     |LUT3   |    84|
+|7     |LUT4   |    90|
+|8     |LUT5   |    46|
+|9     |LUT6   |    50|
+|10    |FDRE   |   213|
+|11    |FDSE   |     2|
+|12    |IBUF   |     3|
+|13    |OBUF   |     8|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 3 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 1507.195 ; gain = 504.594
-Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1507.195 ; gain = 616.074
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:19 . Memory (MB): peak = 1498.133 ; gain = 507.613
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1498.133 ; gain = 609.273
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1507.195 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1498.133 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 49 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1507.195 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1498.133 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 1 instances were transformed.
-  LD => LDCE: 1 instance 
+No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 36c689b3
+Synth Design complete | Checksum: 6e9172e9
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 4 Warnings, 1 Critical Warnings and 0 Errors encountered.
+59 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1507.195 ; gain = 988.254
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1498.133 ; gain = 980.305
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
 INFO: [Common 17-1381] The checkpoint 'C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_1/Projet_1/Projet_1.runs/synth_1/TOP.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Feb 18 19:03:01 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 19 21:55:16 2024...
